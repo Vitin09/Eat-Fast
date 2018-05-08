@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-may-2018 19:15:02 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="proyectoDAO.Cliente" table="cliente" catalog="prueba" optimistic-lock="version">
+        <id name="pkIdCliente" type="int">
+            <column name="pk_idCliente" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreCliente" type="string">
+            <column name="nombreCliente" length="20" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="9" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="50" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_idCliente" />
+            </key>
+            <one-to-many class="proyectoDAO.Pedido" />
+        </set>
+    </class>
+</hibernate-mapping>

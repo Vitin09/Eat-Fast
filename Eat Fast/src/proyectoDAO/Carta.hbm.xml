@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-may-2018 19:15:02 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="proyectoDAO.Carta" table="carta" catalog="prueba" optimistic-lock="version">
+        <id name="pkIdCarta" type="int">
+            <column name="pk_idCarta" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrePlato" type="string">
+            <column name="nombrePlato" length="20" not-null="true" />
+        </property>
+        <property name="ingredientes" type="string">
+            <column name="ingredientes" length="60" />
+        </property>
+        <set name="restaurantexcartas" table="restaurantexcarta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_idCarta" />
+            </key>
+            <one-to-many class="proyectoDAO.Restaurantexcarta" />
+        </set>
+    </class>
+</hibernate-mapping>

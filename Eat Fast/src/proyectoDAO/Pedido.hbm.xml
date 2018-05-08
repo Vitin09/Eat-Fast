@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-may-2018 19:15:02 by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="proyectoDAO.Pedido" table="pedido" catalog="prueba" optimistic-lock="version">
+        <id name="pkIdPedido" type="int">
+            <column name="pk_idPedido" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="proyectoDAO.Cliente" fetch="select">
+            <column name="fk_idCliente" />
+        </many-to-one>
+        <many-to-one name="restaurantexcarta" class="proyectoDAO.Restaurantexcarta" fetch="select">
+            <column name="fk_idMenu" />
+        </many-to-one>
+        <property name="fechaHora" type="date">
+            <column name="fechaHora" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
