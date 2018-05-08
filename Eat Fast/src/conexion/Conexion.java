@@ -20,7 +20,7 @@ public class Conexion {
 		boolean commit = true;
 		
 		crearClinte("Viti", "87654321B", "Calle de Raquel", 987465123);
-		
+
 		//Hacer commit BBDD
 		if (commit) {			
 			transaction.commit();
